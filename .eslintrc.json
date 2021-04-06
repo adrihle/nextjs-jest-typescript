@@ -22,6 +22,7 @@
   },
   "rules": {
     "react/react-in-jsx-scope": 0,
+    "@typescript-eslint/explicit-module-boundary-types": "off",
     "react/display-name": 0,
     "react/prop-types": 0,
     "@typescript-eslint/explicit-function-return-type": 0,
@@ -37,11 +38,15 @@
         "argsIgnorePattern": "^_"
       }
     ],
-    "no-console": [
-      2,
-      {
-        "allow": ["warn", "error"]
+    "no-console": "off"
+  },
+  "overrides": [
+    {
+      // enable the rule specifically for TypeScript files
+      "files": ["*.ts", "*.tsx"],
+      "rules": {
+        "@typescript-eslint/explicit-module-boundary-types": ["error"]
       }
-    ]
-  }
+    }
+  ]
 }

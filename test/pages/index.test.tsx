@@ -1,17 +1,15 @@
-import React from 'react'
-import { render, fireEvent } from '../testUtils'
-import { Home } from '../../pages/index'
+import { filterUsers } from '../../components/hello/hello'
 
-describe('Home page', () => {
-  it('matches snapshot', () => {
-    const { asFragment } = render(<Home />, {})
-    expect(asFragment()).toMatchSnapshot()
-  })
+describe('Testing function sample', () => {
+  test('the function should filter a input "name" in "arr" given both', () => {
+    const input: any = [
+      { id: 1, name: 'Patricia' },
+      { id: 2, name: 'Lola' },
+      { id: 3, name: 'Julieta' },
+    ]
 
-  it('clicking button triggers alert', () => {
-    const { getByText } = render(<Home />, {})
-    window.alert = jest.fn()
-    fireEvent.click(getByText('Test Button'))
-    expect(window.alert).toHaveBeenCalledWith('With typescript and Jest')
+    const output: any = [{ id: 1, name: 'Patricia' }]
+
+    expect(filterUsers(input, 'Patricia')).toEqual(output)
   })
 })
