@@ -4,6 +4,7 @@
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import styles from './hello.module.sass'
+import Link from 'next/link'
 
 export const Hello: React.FC<any> = ({ data }): JSX.Element => {
   const [name, setName] = useState('')
@@ -27,9 +28,13 @@ export const Hello: React.FC<any> = ({ data }): JSX.Element => {
         {lista.length ? (
           lista.map((user: any) => {
             return (
-              <div className={styles.box} key={user.id}>
-                <h2 className={styles.title}>{user.name}</h2>
-              </div>
+              // para rutas dinamicas hay que incluir el decorador as para que no
+              // refresque la pagina entera
+              <Link href="/[person]" as={`/${user.name}`} key={user.id}>
+                <div className={styles.box}>
+                  <h2 className={styles.title}>{user.name}</h2>
+                </div>
+              </Link>
             )
           })
         ) : (

@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 // se importan los componentes que queramos usar
 import { Hello } from '../components/'
+import styles from '../styles/pages/index.module.sass'
 
 // se puede usar funciones o clases, depende de la finalidad
 export const Home = (data: []): JSX.Element => {
@@ -12,7 +13,7 @@ export const Home = (data: []): JSX.Element => {
 
   // la funcion retorna un jsx
   return (
-    <div className="container">
+    <div className={styles.container}>
       {/* de esta manera pasamos props al children, hay muchas mas formas */}
       <Hello {...data} />
     </div>
