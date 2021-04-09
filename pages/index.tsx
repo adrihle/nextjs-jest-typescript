@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 // se importan los componentes que queramos usar
-import { Hellow } from '../components/hello/hello'
+import { Hello } from '../components/'
 
 // se puede usar funciones o clases, depende de la finalidad
 export const Home = (data: []): JSX.Element => {
@@ -14,12 +14,12 @@ export const Home = (data: []): JSX.Element => {
   return (
     <div className="container">
       {/* de esta manera pasamos props al children, hay muchas mas formas */}
-      <Hellow {...data} />
+      <Hello {...data} />
     </div>
   )
 }
 
-// // por este metodo ejecutamos funciones antes que renderice la pagina (SSR)
+// ?? este metodo tambien se puede usar como el getStaticProps, pero esta deprecated ya
 // Home.getInitialProps = async (): Promise<unknown> => {
 //   const res = await fetch('https://jsonplaceholder.typicode.com/users')
 //   const data = await res.json()
@@ -28,6 +28,7 @@ export const Home = (data: []): JSX.Element => {
 //   return { data }
 // }
 
+// por este metodo ejecutamos funciones antes que renderice la pagina (SSR)
 export const getStaticProps = async (): Promise<unknown> => {
   const res = await fetch('https://jsonplaceholder.typicode.com/users')
   const data = await res.json()

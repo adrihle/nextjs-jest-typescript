@@ -2,9 +2,10 @@
 // de tags, solo clases o id, aqui se hace al reves, se crea en sass y luego se asigna
 // en el jsx
 import { useEffect, useState } from 'react'
+import Image from 'next/image'
 import styles from './hello.module.sass'
 
-export const Hellow: React.FC<any> = ({ data }): JSX.Element => {
+export const Hello: React.FC<any> = ({ data }): JSX.Element => {
   const [name, setName] = useState('')
   const [lista, setLista] = useState(data)
 
@@ -22,14 +23,21 @@ export const Hellow: React.FC<any> = ({ data }): JSX.Element => {
         placeholder="filter"
       />
       {/* la forma de introducir codigo js es con las llaves {} */}
-      <div className={styles.container}>
-        {lista.map((user: any) => {
-          return (
-            <div className={styles.box} key={user.id}>
-              <h2 className={styles.title}>{user.name}</h2>
-            </div>
-          )
-        })}
+      <div className={lista.length ? styles.container : styles.empty}>
+        {lista.length ? (
+          lista.map((user: any) => {
+            return (
+              <div className={styles.box} key={user.id}>
+                <h2 className={styles.title}>{user.name}</h2>
+              </div>
+            )
+          })
+        ) : (
+          <div>
+            <Image src="/icons-mmm.svg" alt="me" width="64" height="64" />
+            <p>Smell like bitch here...</p>
+          </div>
+        )}
       </div>
     </div>
   )
