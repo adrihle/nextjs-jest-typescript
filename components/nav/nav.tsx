@@ -1,5 +1,4 @@
 import styles from './nav.module.sass'
-// Este es el componente para navegar por las distintas urls (como un a)
 import Link from 'next/link'
 
 export const Nav: React.FC<any> = (): JSX.Element => {
