@@ -1,7 +1,7 @@
 import styles from './nav.module.sass'
 import Link from 'next/link'
 
-export const Nav: React.FC<any> = (): JSX.Element => {
+export const Nav = (): JSX.Element => {
   return (
     <div className={styles.navbar}>
       <div className={styles.navbarContent}>

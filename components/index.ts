@@ -1,2 +1,2 @@
-export { Hello } from './hello/hello'
-export { Nav } from './nav/nav'
+export { Button } from './button/button.component'
+export { Accordion } from './accordion/accordion.component'

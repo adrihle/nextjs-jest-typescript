@@ -1,4 +1,4 @@
-import { filterUsers } from '../../components/hello/hello'
+import { filterUsers } from '../../containers/hello/hello'
 
 describe('Testing function sample', () => {
   test('the function should filter a input "name" in "arr" given both', () => {

@@ -36,6 +36,7 @@ export const Hello: React.FC<any> = ({ data }): JSX.Element => {
           </div>
         )}
       </div>
+      <div className={styles.scroller}></div>
     </div>
   )
 }

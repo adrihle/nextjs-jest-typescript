@@ -1,4 +1,4 @@
-import { Hello } from '../components/'
+import { Hello } from '../containers'
 import styles from '../styles/pages/index.module.sass'
 
 export const Home = (data: []): JSX.Element => {
